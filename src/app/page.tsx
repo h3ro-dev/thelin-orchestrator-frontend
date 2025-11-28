@@ -140,9 +140,13 @@ export default function Dashboard() {
               />
               Refresh
             </button>
-            <button className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">
+            <a
+              href="/architecture"
+              className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition"
+              title="View Architecture"
+            >
               <Settings className="h-5 w-5" />
-            </button>
+            </a>
             <UserButton />
           </div>
         </div>
