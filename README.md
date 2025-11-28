@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Thelin Orchestrator - Frontend
+
+Jason Thelin's Cognitive Prosthetic Dashboard
+
+## Overview
+
+This Next.js application serves as the frontend for the Thelin Note Orchestration System. It provides Jason with a dashboard to review AI-processed lifelogs from his Limitless Pendant, captured insights for his book on AI-era leadership, and business ideas extracted from his conversations.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Authentication**: Clerk
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Date Formatting**: date-fns
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+1. Node.js 18+
+2. A Clerk account with an application set up
+3. Access to the Mac Studio 1 backend API
+
+### Environment Setup
+
+Copy `.env.example` to `.env.local` and fill in your values:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Required environment variables:
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` - From Clerk dashboard
+- `CLERK_SECRET_KEY` - From Clerk dashboard
+- `BACKEND_API_URL` - Mac Studio 1 API endpoint
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Development
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+### Deployment to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push to GitHub
+2. Import to Vercel
+3. Add environment variables
+4. Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── layout.tsx      # Root layout with Clerk provider
+│   ├── page.tsx        # Main dashboard
+│   ├── sign-in/        # Clerk sign-in page
+│   └── sign-up/        # Clerk sign-up page
+├── middleware.ts       # Clerk authentication middleware
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Backend Connection
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The frontend connects to the Mac Studio 1 backend via Tailscale. The backend API runs on port 3001 and provides:
+
+- `/api/stats` - Today's dashboard statistics
+- `/api/book-additions` - Pending book content
+- `/api/business-ideas` - Captured business ideas
+- `/api/questions` - Clarifying questions for Jason
+- `/api/lifelogs` - Raw lifelog data
+
+## Features
+
+- **Dashboard**: Today's capture statistics
+- **Book Additions**: AI-extracted content for the leadership book
+- **Business Ideas**: Captured ideas with venture synergies
+- **Questions**: Clarifying questions from the AI agents
+- **Real-time Updates**: Refresh button for latest data
+
+## Related Repositories
+
+- Backend (Mac Studio 1): `~/thelin-orchestrator/`
+- Book Repository: `h3ro-dev/thelin-book-ai-leadership` (planned)
