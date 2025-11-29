@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Link from "next/link";
 import { useUser, UserButton } from "@clerk/nextjs";
 import {
   BookOpen,
@@ -244,9 +245,12 @@ export default function Dashboard() {
                     <p className="text-sm text-slate-300 line-clamp-2">
                       {addition.content_markdown}
                     </p>
-                    <button className="mt-3 text-xs text-blue-400 hover:text-blue-300">
-                      Review PR &rarr;
-                    </button>
+                    <Link
+                      href={`/book/${addition.id}`}
+                      className="mt-3 inline-block text-xs text-blue-400 hover:text-blue-300"
+                    >
+                      Review &rarr;
+                    </Link>
                   </div>
                 ))
               )}
@@ -297,9 +301,12 @@ export default function Dashboard() {
                     <p className="text-sm text-slate-300 line-clamp-2">
                       {idea.summary}
                     </p>
-                    <button className="mt-3 text-xs text-blue-400 hover:text-blue-300">
+                    <Link
+                      href={`/ideas/${idea.id}`}
+                      className="mt-3 inline-block text-xs text-blue-400 hover:text-blue-300"
+                    >
                       View Details &rarr;
-                    </button>
+                    </Link>
                   </div>
                 ))
               )}
