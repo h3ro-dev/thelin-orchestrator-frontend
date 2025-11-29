@@ -20,22 +20,11 @@ export default function LandingPage() {
         :root {
           --font-serif: 'Libre Baskerville', Georgia, serif;
           --font-sans: 'Inter', system-ui, sans-serif;
-          --blue-50: #eff6ff;
-          --blue-100: #dbeafe;
-          --blue-200: #bfdbfe;
-          --blue-300: #93c5fd;
           --blue-400: #60a5fa;
           --blue-500: #3b82f6;
           --blue-600: #2563eb;
-          --blue-700: #1d4ed8;
-          --blue-800: #1e40af;
-          --blue-900: #1e3a8a;
-          --slate-50: #f8fafc;
           --slate-400: #94a3b8;
           --slate-500: #64748b;
-          --slate-600: #475569;
-          --slate-800: #1e293b;
-          --slate-900: #0f172a;
         }
 
         .font-serif {
@@ -60,14 +49,6 @@ export default function LandingPage() {
             opacity: 1;
             transform: translateY(0);
           }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        .animate-fadeInUp {
-          animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .line-blue {
@@ -137,7 +118,7 @@ export default function LandingPage() {
 
       {/* Hero */}
       <main className="relative z-10">
-        <section className="max-w-5xl mx-auto px-6 lg:px-8 pt-20 pb-24 lg:pt-28 lg:pb-32">
+        <section className="max-w-5xl mx-auto px-6 lg:px-8 pt-20 pb-20 lg:pt-28 lg:pb-24">
           <div className="max-w-3xl">
             {/* Overline */}
             <div
@@ -146,7 +127,7 @@ export default function LandingPage() {
             >
               <div className="line-blue" />
               <span className="font-sans text-xs tracking-widest uppercase text-blue-400">
-                Software & Ventures
+                Software · Ventures · Community
               </span>
             </div>
 
@@ -158,9 +139,9 @@ export default function LandingPage() {
               Jason Thelin
             </h1>
 
-            {/* Bio - Factual, third-person */}
+            {/* Bio */}
             <p
-              className="font-sans text-lg text-slate-400 leading-relaxed mb-8 opacity-0"
+              className="font-sans text-lg text-slate-400 leading-relaxed mb-4 opacity-0"
               style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 0.5s forwards' : 'none' }}
             >
               Co-founder of{" "}
@@ -171,10 +152,26 @@ export default function LandingPage() {
                 className="text-blue-400 hover:text-blue-300"
               >
                 SolutionStream
+              </a>{" "}
+              (1996) and CEO of{" "}
+              <a
+                href="https://kahoa.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300"
+              >
+                Kahoa
               </a>
-              , a Utah-based custom software development company he started in 1996.
-              For nearly three decades, he has helped companies move from product idea
-              to working solutions.
+              . For nearly three decades, he has helped companies move from product idea to
+              working software solutions.
+            </p>
+
+            <p
+              className="font-sans text-slate-500 leading-relaxed mb-8 opacity-0"
+              style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 0.55s forwards' : 'none' }}
+            >
+              Based in Alpine, Utah. BYU graduate. Father of seven. Active in local governance
+              and student mentorship.
             </p>
 
             {/* CTA */}
@@ -191,7 +188,7 @@ export default function LandingPage() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
-                Connect on LinkedIn
+                Connect
               </a>
               <SignedOut>
                 <Link
@@ -207,9 +204,9 @@ export default function LandingPage() {
 
         {/* Ventures Section */}
         <section className="border-t border-white/5">
-          <div className="max-w-5xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
+          <div className="max-w-5xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
             <div
-              className="flex items-center gap-3 mb-12 opacity-0"
+              className="flex items-center gap-3 mb-10 opacity-0"
               style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 0.7s forwards' : 'none' }}
             >
               <div className="line-blue" />
@@ -218,64 +215,59 @@ export default function LandingPage() {
               </span>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
               {[
+                {
+                  name: "Kahoa",
+                  role: "CEO & Co-Founder",
+                  description: "Strategic custom software development company. Rebranded from SolutionStream. 51-200 employees, $5M-$20M revenue. Listed on AI Utah 100.",
+                  url: "https://kahoa.ai",
+                  delay: "0.75s"
+                },
                 {
                   name: "SolutionStream",
                   role: "Co-Founder",
                   year: "1996",
-                  description: "Custom software development company based in Lehi, Utah. Builds web and mobile applications for companies across industries.",
+                  description: "Custom software development. Grew from 3 to 120+ employees. Inc. 500 recognition (2009, 2010, 2011). Clients include FranklinCovey, Western Governors University, Extra Space Storage, Young Living, Qualtrics.",
                   url: "https://solutionstream.com",
-                  delay: "0.8s"
-                },
-                {
-                  name: "Kahoa",
-                  role: "Co-Founder",
-                  year: null,
-                  description: "Enterprise-class custom software development, driving innovation in complex application architecture.",
-                  url: null,
-                  delay: "0.9s"
+                  delay: "0.85s"
                 },
                 {
                   name: "Kartiva",
                   role: "Owner",
-                  year: null,
-                  description: "Video commerce SaaS platform that helps brands maximize product sales through influencer partnerships.",
+                  description: "Video commerce SaaS platform helping brands maximize product sales through influencer partnerships.",
                   url: null,
-                  delay: "1s"
+                  delay: "0.95s"
                 },
                 {
                   name: "East Mountain Holdings",
                   role: "Founder",
-                  year: null,
                   description: "Property holdings and real estate investment company.",
                   url: null,
-                  delay: "1.1s"
+                  delay: "1.05s"
                 }
               ].map((venture) => (
                 <div
                   key={venture.name}
-                  className="p-6 border border-white/5 rounded-lg hover:border-blue-500/20 transition-colors opacity-0"
+                  className="p-5 border border-white/5 rounded-lg hover:border-blue-500/20 transition-colors opacity-0"
                   style={{ animation: mounted ? `fadeInUp 0.8s ease-out ${venture.delay} forwards` : 'none' }}
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      {venture.url ? (
-                        <a
-                          href={venture.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="font-serif text-xl text-white hover:text-blue-400 transition-colors"
-                        >
-                          {venture.name}
-                        </a>
-                      ) : (
-                        <h3 className="font-serif text-xl text-white">{venture.name}</h3>
-                      )}
-                      <p className="font-sans text-sm text-slate-500 mt-1">
-                        {venture.role}{venture.year && ` · ${venture.year}`}
-                      </p>
-                    </div>
+                  <div className="mb-3">
+                    {venture.url ? (
+                      <a
+                        href={venture.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-serif text-xl text-white hover:text-blue-400 transition-colors"
+                      >
+                        {venture.name}
+                      </a>
+                    ) : (
+                      <h3 className="font-serif text-xl text-white">{venture.name}</h3>
+                    )}
+                    <p className="font-sans text-sm text-slate-500 mt-1">
+                      {venture.role}{"year" in venture && venture.year && ` · ${venture.year}`}
+                    </p>
                   </div>
                   <p className="font-sans text-sm text-slate-400 leading-relaxed">
                     {venture.description}
@@ -286,43 +278,108 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Background Section */}
+        {/* Background & Community Section */}
         <section className="border-t border-white/5">
-          <div className="max-w-5xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div className="max-w-5xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+              {/* Career */}
               <div
                 className="opacity-0"
-                style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 1.2s forwards' : 'none' }}
+                style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 1.1s forwards' : 'none' }}
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-5">
                   <div className="line-blue" />
                   <span className="font-sans text-xs tracking-widest uppercase text-blue-400">
                     Background
                   </span>
                 </div>
-                <p className="font-sans text-slate-400 leading-relaxed mb-4">
-                  BYU graduate based in Lehi, Utah. Started his career as a Java Developer
-                  at Nu Skin Enterprises in 1995 before founding SolutionStream the following year.
-                </p>
-                <p className="font-sans text-slate-400 leading-relaxed">
-                  In 2008, he helped establish the Young Founder&apos;s Group at BYU to connect
-                  successful entrepreneurs with student businesses. He has served on BYU&apos;s
-                  Entrepreneurship Founders advisory board since 2007, mentoring students
-                  in starting and operating ventures.
-                </p>
+                <div className="space-y-4 font-sans text-slate-400 leading-relaxed text-sm">
+                  <p>
+                    Graduated from Provo High School and Brigham Young University with a BS degree.
+                    Started career as a Java Developer at Nu Skin Enterprises (1995), then
+                    Senior Java Developer at Allen Communication before co-founding SolutionStream
+                    with Travis Cook in 1996.
+                  </p>
+                  <p>
+                    Over 25 years, SolutionStream completed 2,000+ projects for hundreds of clients
+                    across ecommerce, education, insurance, healthcare, and finance. The company
+                    rebranded to Kahoa to reflect its evolution into AI and enterprise solutions.
+                  </p>
+                  <p>
+                    Technical expertise spans Java, .NET, PHP, mobile development (iOS/Android),
+                    and user interface design. Describes himself as a Software Engineer,
+                    Solutions Architect, and Entrepreneur.
+                  </p>
+                </div>
               </div>
 
+              {/* Community */}
+              <div
+                className="opacity-0"
+                style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 1.2s forwards' : 'none' }}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="line-blue" />
+                  <span className="font-sans text-xs tracking-widest uppercase text-blue-400">
+                    Community
+                  </span>
+                </div>
+                <div className="space-y-4 font-sans text-slate-400 leading-relaxed text-sm">
+                  <p>
+                    <span className="text-slate-300">Alpine City Council</span> — Currently serves as
+                    Mayor Pro Tem. Combined 14+ years on Planning Commission and City Council.
+                    Organized Alpine Days Festival three times.
+                  </p>
+                  <p>
+                    <span className="text-slate-300">BYU Entrepreneurship Founders</span> — Advisory
+                    board member since 2007. Co-founded the Young Founder&apos;s Group in 2008 to
+                    connect entrepreneurs with student businesses. Gives lectures, team-teaches
+                    with faculty, and mentors students in starting ventures.
+                  </p>
+                  <p>
+                    His father, Jay Thelin, retired from BYU after 27 years—a connection that
+                    instilled Jason&apos;s commitment to supporting students and university programs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Family note + Orchestrator */}
+        <section className="border-t border-white/5">
+          <div className="max-w-5xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+              {/* Personal */}
               <div
                 className="opacity-0"
                 style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 1.3s forwards' : 'none' }}
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="line-blue" />
+                  <span className="font-sans text-xs tracking-widest uppercase text-blue-400">
+                    Personal
+                  </span>
+                </div>
+                <p className="font-sans text-slate-400 leading-relaxed text-sm">
+                  Lives in Alpine, Utah with his wife Vanessa and their family of seven children.
+                  Interests include custom web development, mobile development, and building
+                  software solutions that help businesses grow.
+                </p>
+              </div>
+
+              {/* Orchestrator */}
+              <div
+                className="opacity-0"
+                style={{ animation: mounted ? 'fadeInUp 0.8s ease-out 1.4s forwards' : 'none' }}
+              >
+                <div className="flex items-center gap-3 mb-5">
                   <div className="line-blue" />
                   <span className="font-sans text-xs tracking-widest uppercase text-blue-400">
                     Orchestrator
                   </span>
                 </div>
-                <p className="font-sans text-slate-400 leading-relaxed mb-6">
+                <p className="font-sans text-slate-400 leading-relaxed text-sm mb-4">
                   The Thelin Orchestrator is an AI-powered system for capturing insights
                   from daily conversations, developing book content, and tracking business
                   opportunities.
@@ -360,7 +417,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8 py-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="font-sans text-sm text-slate-500">
-              &copy; {new Date().getFullYear()} Jason Thelin
+              &copy; {new Date().getFullYear()} Jason Thelin · Alpine, Utah
             </span>
             <div className="flex items-center gap-6">
               <a
@@ -372,6 +429,14 @@ export default function LandingPage() {
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
+              </a>
+              <a
+                href="https://kahoa.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-sm text-slate-500 hover:text-blue-400 transition-colors"
+              >
+                Kahoa
               </a>
               <a
                 href="https://solutionstream.com"
