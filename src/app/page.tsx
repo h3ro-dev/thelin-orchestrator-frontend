@@ -16,6 +16,7 @@ import {
   TrendingUp,
   Clock,
   Sparkles,
+  Settings2,
 } from "lucide-react";
 import { format } from "date-fns";
 import { api, type Stats, type BookAddition, type BusinessIdea, type Question } from "@/lib/api";
@@ -165,6 +166,14 @@ export default function Dashboard() {
             >
               <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
             </button>
+
+            <Link
+              href="/architecture"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 border border-white/5 transition-all text-sm text-slate-300 hover:text-white"
+              title="System Architecture & Status"
+            >
+              <Settings2 className="h-4 w-4" />
+            </Link>
 
             <UserButton
               appearance={{
@@ -472,14 +481,18 @@ function StatCard({
 
 function StatusBadge({ status, type }: { status: string; type: "book" | "idea" }) {
   const configs: Record<string, { bg: string; text: string }> = {
+    // Book statuses
     pending: { bg: "bg-slate-500/20", text: "text-slate-400" },
     review: { bg: "bg-amber-500/20", text: "text-amber-400" },
     approved: { bg: "bg-emerald-500/20", text: "text-emerald-400" },
     rejected: { bg: "bg-red-500/20", text: "text-red-400" },
+    // Idea statuses (from backend: new, researching, validated, in_progress, parked, completed)
     new: { bg: "bg-emerald-500/20", text: "text-emerald-400" },
-    reviewing: { bg: "bg-blue-500/20", text: "text-blue-400" },
+    researching: { bg: "bg-blue-500/20", text: "text-blue-400" },
+    validated: { bg: "bg-violet-500/20", text: "text-violet-400" },
     in_progress: { bg: "bg-amber-500/20", text: "text-amber-400" },
-    archived: { bg: "bg-slate-500/20", text: "text-slate-400" },
+    parked: { bg: "bg-slate-500/20", text: "text-slate-400" },
+    completed: { bg: "bg-green-500/20", text: "text-green-400" },
   };
 
   const config = configs[status] || configs.pending;

@@ -23,6 +23,7 @@ import { format } from "date-fns";
 import { api, type BusinessIdea } from "@/lib/api";
 import ReactMarkdown from "react-markdown";
 
+// Backend accepts: ['new', 'researching', 'validated', 'in_progress', 'parked', 'completed']
 const statusConfig: Record<string, { label: string; color: string; bgColor: string; icon: React.ReactNode }> = {
   new: {
     label: "New",
@@ -30,14 +31,14 @@ const statusConfig: Record<string, { label: string; color: string; bgColor: stri
     bgColor: "bg-emerald-500/20 border-emerald-500/30",
     icon: <Lightbulb className="h-4 w-4" />
   },
-  reviewing: {
-    label: "Reviewing",
+  researching: {
+    label: "Researching",
     color: "text-blue-400",
     bgColor: "bg-blue-500/20 border-blue-500/30",
     icon: <Clock className="h-4 w-4" />
   },
-  approved: {
-    label: "Approved",
+  validated: {
+    label: "Validated",
     color: "text-violet-400",
     bgColor: "bg-violet-500/20 border-violet-500/30",
     icon: <Check className="h-4 w-4" />
@@ -48,11 +49,17 @@ const statusConfig: Record<string, { label: string; color: string; bgColor: stri
     bgColor: "bg-amber-500/20 border-amber-500/30",
     icon: <Rocket className="h-4 w-4" />
   },
-  archived: {
-    label: "Archived",
+  parked: {
+    label: "Parked",
     color: "text-slate-400",
     bgColor: "bg-slate-500/20 border-slate-500/30",
     icon: <Archive className="h-4 w-4" />
+  },
+  completed: {
+    label: "Completed",
+    color: "text-green-400",
+    bgColor: "bg-green-500/20 border-green-500/30",
+    icon: <Check className="h-4 w-4" />
   },
 };
 
